@@ -1,0 +1,17 @@
+server:
+  port: 9001
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: config-server
+  cloud:
+      config:
+        server:
+          git:
+            search-paths: /**     # 配置文件所在的目录
+            uri: https://github.com/VaieJava/outdd-read-config-files
+            username: vaielx@163.com
+            password: y571859138
+        label: master  # 分支
