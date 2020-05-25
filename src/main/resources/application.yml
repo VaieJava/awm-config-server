@@ -2,8 +2,6 @@ server:
   port: 9001
 
 spring:
-  profiles:
-    active: dev
   application:
     name: config-server
   cloud:
@@ -15,3 +13,25 @@ spring:
             username: vaielx@163.com
             password: y571859138
         label: master  # 分支
+        bus:
+          refresh:
+            enabled: true
+  kafka:
+    bootstrap-servers: 39.107.226.36:1902   #配置 kafka 服务器的地址和端口
+eureka:
+  instance:
+    ##续约更新时间间隔设置5秒，m默认30s
+    lease-renewal-interval-in-seconds: 5
+    ##续约到期时间10秒，默认是90秒
+    lease-expiration-duration-in-seconds: 10
+  client:
+    service-url:
+#      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://39.107.226.36:8762/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: env
